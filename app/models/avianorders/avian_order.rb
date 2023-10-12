@@ -1,0 +1,3 @@
+class AvianOrder < ApplicationRecord
+  
+end
