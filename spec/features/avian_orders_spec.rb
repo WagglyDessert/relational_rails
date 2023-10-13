@@ -31,6 +31,19 @@ RSpec.describe "AvianOrders Index", type: :feature do
         expect(page).to have_content(avianorder_1.families)
         expect(page).to have_content(avianorder_1.anisodactyl)
       end
+      it "I can see each avianorders's families, species, and toe formation" do
+      avianorder_1 = AvianOrder.create!(order: "passeriformes",
+                        families: "Muscicapoidea, Fringillidae, Troglodytidae",
+                         species: 6500,
+                         anisodactyl: true,
+                         zygodactyl: false,
+                         tridactyl: false,
+                         didactyl: false)
+      visit "/avianorders/#{avianorder_1.id}"
+      expect(page).to have_content(avianorder_1.id)
+      expect(page).to have_content(avianorder_1.families)
+      expect(page).to have_content(avianorder_1.anisodactyl)
+      end
     end
   end
 end
