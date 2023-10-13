@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get "/avianorders/:id", to: "avian_orders#show"
   get "/birds", to: "birds#index"
   get "/birds/:id", to: "birds#show"
+  get "/avianorders/:avian_order_id/birds", to: "avian_orders_birds#index"
 end
