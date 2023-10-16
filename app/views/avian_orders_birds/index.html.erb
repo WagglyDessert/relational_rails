@@ -3,7 +3,7 @@
 <% @birds.each do |bird| %>
   <h2><%= bird.name %></h2>
   <%= link_to bird.name, "/birds/#{bird.id}" %>
-  <p><%= bird.population %></p>
-  <p><%= bird.migratory %></p>
-  <p><%= bird.sexual_dichromatism %></p>
+  <p> Population: <%= bird.population %></p>
+  <p> Migratory: <%= bird.migratory %></p>
+  <p> sexual_dichromatism: <%= bird.sexual_dichromatism %></p>
 <% end %>  
