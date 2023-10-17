@@ -79,4 +79,22 @@ RSpec.describe "AvianOrders Index", type: :feature do
     expect(page).to have_content("strigiformes")
     expect(page).to_not have_content("passeriformes")
   end
+  # User Story 19, Parent Delete 
+  # As a visitor
+  # When I visit a parent show page
+  # Then I see a link to delete the parent
+  # When I click the link "Delete Parent"
+  # Then a 'DELETE' request is sent to '/parents/:id',
+  # the parent is deleted, and all child records are deleted
+  # and I am redirected to the parent index page where I no longer see this parent
+  it "will add a link to delete avianorder from avianorder show page" do
+    visit "/avianorders/#{@avianorder_1.id}"
+    expect(page).to have_link("Delete Avian Order")
+
+    click_link("Delete Avian Order")
+    expect(current_path).to eq("/avianorders")
+    
+    expect(page).to have_content("strigiformes")
+    expect(page).to_not have_content("passeriformes")
+  end
 end

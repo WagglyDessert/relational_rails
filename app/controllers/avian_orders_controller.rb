@@ -26,6 +26,12 @@ class AvianOrdersController < ApplicationController
     @avianorder.update(avian_order_params)
     redirect_to "/avianorders"
   end
+  
+  def destroy
+    @avianorder = AvianOrder.find(params[:id])
+    @avianorder.destroy
+    redirect_to "/avianorders"
+  end
 
   private
   def avian_order_params

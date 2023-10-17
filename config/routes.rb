@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  
 
   get "/avianorders/new", to: "avian_orders#new"
   post "/avianorders/new", to: "avian_orders#create"
@@ -20,4 +21,6 @@ Rails.application.routes.draw do
   get "/avianorders/:id", to: "avian_orders#show"
   get "/avianorders/:id/edit", to: "avian_orders#edit"
   patch "/avianorders/:id/edit", to: "avian_orders#update"
+  get "/avianorders/:id/delete", to: "avian_orders#destroy"
+  
 end
