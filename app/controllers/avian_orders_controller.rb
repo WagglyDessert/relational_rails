@@ -4,7 +4,7 @@ class AvianOrdersController < ApplicationController
   end
 
   def new
-    
+    @avianorder = AvianOrder.create
   end
 
   def show
@@ -14,6 +14,16 @@ class AvianOrdersController < ApplicationController
 
   def create
     @avianorder = AvianOrder.create(avian_order_params)
+    redirect_to "/avianorders"
+  end
+
+  def edit
+    @avianorder = AvianOrder.find(params[:id])
+  end
+  
+  def update
+    @avianorder = AvianOrder.find(params[:id])
+    @avianorder.update(avian_order_params)
     redirect_to "/avianorders"
   end
 

@@ -54,4 +54,29 @@ RSpec.describe "AvianOrders Index", type: :feature do
     click_link("List of Birds in #{@avianorder_2.order}")
     expect(current_path).to eq("/avianorders/#{@avianorder_2.id}/birds")
   end
+  # User Story 12, Parent Update 
+  # As a visitor
+  # When I visit a parent show page
+  # Then I see a link to update the parent "Update Parent"
+  # When I click the link "Update Parent"
+  # Then I am taken to '/parents/:id/edit' where I  see a form to edit the parent's attributes:
+  # When I fill out the form with updated information
+  # And I click the button to submit the form
+  # Then a `PATCH` request is sent to '/parents/:id',
+  # the parent's info is updated,
+  # and I am redirected to the Parent's Show page where I see the parent's updated info
+  it "adds a link to update parent record and creates a form" do
+    visit "/avianorders/#{@avianorder_1.id}"
+    expect(page).to have_link("Update Avian Order")
+
+    click_link("Update Avian Order")
+    expect(current_path).to eq("/avianorders/#{@avianorder_1.id}/edit")
+    
+    fill_in('Order', with: "Piciformes")
+    click_button("Update Avian Order")
+    expect(current_path).to eq("/avianorders")
+    expect(page).to have_content("Piciformes")
+    expect(page).to have_content("strigiformes")
+    expect(page).to_not have_content("passeriformes")
+  end
 end

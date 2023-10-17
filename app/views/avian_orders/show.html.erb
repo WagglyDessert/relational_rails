@@ -8,3 +8,4 @@
 <p>Number_of_Birds: <%= @avianorder.birds.length %></p>
 
 <%= link_to "List of Birds in #{@avianorder.order}", "/avianorders/#{@avianorder.id}/birds" %>
+<p><%= link_to "Update Avian Order", "/avianorders/#{@avianorder.id}/edit" %></p>

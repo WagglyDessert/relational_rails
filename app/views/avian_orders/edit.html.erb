@@ -1,0 +1,19 @@
+<h2> Editing  <%= @avianorder.order %></h2>
+<%= form_with url: "/avianorders/#{@avianorder.id}/edit", method: :patch, data: {turbo: false} do |form| %>
+  <p><%= form.label :order %></p>
+  <%= form.text_field :order %>
+
+  <p><%= form.label :families %></p>
+  <%= form.text_field :families %>
+
+  <p><%= form.label :anisodactyl %></p>
+<%= form.select :anisodactyl, options_for_select([[true, 'True'], [false, 'False']], @avianorder.anisodactyl) %>
+  <p><%= form.label :didactyl %></p>
+<%= form.select :didactyl, options_for_select([[true, 'True'], [false, 'False']], @avianorder.didactyl) %>
+  <p><%= form.label :tridactyl %></p>
+<%= form.select :tridactyl, options_for_select([[true, 'True'], [false, 'False']], @avianorder.tridactyl) %>
+  <p><%= form.label :zygodactyl %></p>
+<%= form.select :zygodactyl, options_for_select([[true, 'True'], [false, 'False']], @avianorder.zygodactyl) %>
+
+  <p><%= form.submit "Update Avian Order" %></p>
+<% end %>

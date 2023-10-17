@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   get "/birds", to: "birds#index"
   get "/birds/:id", to: "birds#show"
   get "/avianorders/:avian_order_id/birds", to: "avian_orders_birds#index"
-  
+  get "/avianorders/:id/edit", to: "avian_orders#edit"
+  patch "/avianorders/:id/edit", to: "avian_orders#update"
 end
