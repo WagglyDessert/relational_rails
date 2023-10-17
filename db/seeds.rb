@@ -27,3 +27,11 @@ bird_2 = avianorder_2.birds.create!(name: "Great horned owl",
                          population: 5700000,
                           migratory: false,
                           sexual_dichromatism: false)
+bird_3 = avianorder_2.birds.create!(name: "Eurasian eagle-owl",
+                         population: 300000,
+                          migratory: false,
+                          sexual_dichromatism: false)
+bird_4 = avianorder_1.birds.create!(name: "Eurasian bullfinch",
+                         population: 40000000,
+                          migratory: true,
+                          sexual_dichromatism: true)

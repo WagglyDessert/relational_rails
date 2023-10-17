@@ -64,6 +64,26 @@ RSpec.describe "AvianOrders Index", type: :feature do
         expect(page).to have_content("Common starling")
         expect(page).to_not have_content("Great horned owl")
       end
+      # User Story 18, Child Update From Childs Index Page 
+      # As a visitor
+      # When I visit the `child_table_name` index page or a parent `child_table_name` index page
+      # Next to every child, I see a link to edit that child's info
+      # When I click the link
+      # I should be taken to that `child_table_name` edit page where I can update its information just like in User Story 14
+      it "has links to update birds from bird index page" do
+        visit "/avianorders"
+        expect(page).to have_link("Update Avian Order")
+
+        all('a', text: "Update Avian Order")[0].click
+        expect(current_path).to eq("/avianorders/#{@avianorder_2.id}/edit")
+        
+        fill_in('Order', with: "Piciformes")
+        click_button("Update Avian Order")
+        expect(current_path).to eq("/avianorders")
+        expect(page).to have_content("Piciformes")
+        expect(page).to have_content("passeriformes")
+        expect(page).to_not have_content("strigiformes")
+      end
     end
   end
 end

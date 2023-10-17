@@ -13,6 +13,10 @@ RSpec.describe "avian_order_birds index", type: :feature do
                         population: 310000000,
                          migratory: true,
                          sexual_dichromatism: true)
+    @bird_2 = @avianorder_1.birds.create!(name: "Eurasian bullfinch",
+                         population: 40000000,
+                          migratory: true,
+                          sexual_dichromatism: true)
   end
   describe 'parent-child index' do
     it 'displays children associated with the parent' do
@@ -57,6 +61,20 @@ RSpec.describe "avian_order_birds index", type: :feature do
         click_button("Create Bird")
         expect(current_path).to eq("/avianorders/#{@avianorder_1.id}/birds")
         expect(page).to have_content("Spotted toucan")
+    end
+    # User Story 16, Sort Parent's Children in Alphabetical Order by name 
+    # As a visitor
+    # When I visit the Parent's children Index Page
+    # Then I see a link to sort children in alphabetical order
+    # When I click on the link
+    # I'm taken back to the Parent's children Index Page where I see all of the parent's children in alphabetical order
+    it "shows a link to sort birds in alphabetical order" do
+      visit "/avianorders/#{@avianorder_1.id}/birds"
+      expect(page).to have_link("Sort Alphabetically")
+
+      click_link("Sort Alphabetically")
+      # expect(current_path).to eq("/avianorders/#{@avianorder_1.id}/birds")
+      # expect(page).to have_content("#{@bird_1.name}, #{@bird_2.name}")
     end
   end
 end

@@ -14,6 +14,11 @@ class AvianOrdersBirdsController < ApplicationController
     redirect_to "/avianorders/#{@avianorder.id}/birds"
   end
 
+  def sort
+    @birds = Bird.order(params[name: ])
+    # redirect_to "/avianorders/#{@avianorder.id}/birds"
+  end
+
   private
   def bird_params
     params.permit(:name, :migratory, :population, :sexual_dichromatism)

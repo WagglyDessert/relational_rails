@@ -91,6 +91,26 @@ RSpec.describe "AvianOrders Index", type: :feature do
         expect(current_path).to eq("/avianorders")
         expect(page).to have_content("Piciformes")
       end
+      # User Story 17, Parent Update From Parent Index Page 
+      # As a visitor
+      # When I visit the parent index page
+      # Next to every parent, I see a link to edit that parent's info
+      # When I click the link
+      # I should be taken to that parent's edit page where I can update its information just like in User Story 12
+      it "link to update avianorder present from parent index page" do
+        visit "/avianorders"
+        expect(page).to have_link("Update Avian Order")
+
+        all('a', text: "Update Avian Order")[0].click
+        expect(current_path).to eq("/avianorders/#{@avianorder_2.id}/edit")
+        
+        fill_in('Order', with: "Piciformes")
+        click_button("Update Avian Order")
+        expect(current_path).to eq("/avianorders")
+        expect(page).to have_content("Piciformes")
+        expect(page).to have_content("passeriformes")
+        expect(page).to_not have_content("strigiformes")
+      end
     end
   end
 end
