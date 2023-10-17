@@ -54,6 +54,16 @@ RSpec.describe "AvianOrders Index", type: :feature do
         click_link('List of Birds')
         expect(current_path).to eq('/birds')
       end
+      # User Story 15, Child Index only shows `true` Records 
+
+      # As a visitor
+      # When I visit the child index
+      # Then I only see records where the boolean column is `true`
+      it "shows only records of birds where boolean column is true" do
+        visit "/birds"
+        expect(page).to have_content("Common starling")
+        expect(page).to_not have_content("Great horned owl")
+      end
     end
   end
 end
