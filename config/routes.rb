@@ -6,15 +6,18 @@ Rails.application.routes.draw do
 
   get "/avianorders/new", to: "avian_orders#new"
   post "/avianorders/new", to: "avian_orders#create"
-  
+  get "/avianorders", to: "avian_orders#index"
+
+  get "/avianorders/:avian_order_id/birds", to: "avian_orders_birds#index"
   get "/avianorders/:avian_order_id/birds/new", to: "avian_orders_birds#new"
   post "/avianorders/:avian_order_id/birds/new", to: "avian_orders_birds#create"
 
-  get "/avianorders", to: "avian_orders#index"
-  get "/avianorders/:id", to: "avian_orders#show"
   get "/birds", to: "birds#index"
   get "/birds/:id", to: "birds#show"
-  get "/avianorders/:avian_order_id/birds", to: "avian_orders_birds#index"
+  get "/birds/:id/edit", to: "birds#edit"
+  patch "/birds/:id/edit", to: "birds#update"
+
+  get "/avianorders/:id", to: "avian_orders#show"
   get "/avianorders/:id/edit", to: "avian_orders#edit"
   patch "/avianorders/:id/edit", to: "avian_orders#update"
 end

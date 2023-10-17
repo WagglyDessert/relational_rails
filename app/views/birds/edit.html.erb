@@ -1,0 +1,15 @@
+<h2> Editing  <%= @bird.name %></h2>
+<%= form_with url: "/birds/#{@bird.id}/edit", method: :patch, data: {turbo: false} do |form| %>
+  <p><%= form.label :name %></p>
+  <%= form.text_field :name %>
+
+  <p><%= form.label :population %></p>
+  <%= form.text_field :population %>
+
+  <p><%= form.label :migratory %></p>
+<%= form.select :migratory, options_for_select([[true, 'True'], [false, 'False']]) %>
+  <p><%= form.label :sexual_dichromatism %></p>
+<%= form.select :sexual_dichromatism, options_for_select([[true, 'True'], [false, 'False']]) %>
+
+  <p><%= form.submit "Update Bird" %></p>
+<% end %>
