@@ -5,5 +5,6 @@ class AvianOrdersController < ApplicationController
 
   def show
     @avianorder = AvianOrder.find(params[:id])
+    # @avianorder.birds.count
   end
 end
