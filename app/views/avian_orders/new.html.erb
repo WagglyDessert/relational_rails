@@ -1,0 +1,19 @@
+<h2> Enter the Name of the Avian Order You Would Like to Create </h2>
+<%= form_with url: '/avianorders/new', method: :post, local: true do |form| %>
+  <p><%= form.label :order %></p>
+  <%= form.text_field :order %>
+
+  <p><%= form.label :families %></p>
+  <%= form.text_field :families %>
+
+  <p><%= form.label :anisodactyl %></p>
+  <%= form.select :anisodactyl, ["True", "False"] %>
+  <p><%= form.label :didactyl %></p>
+  <%= form.select :didactyl, ["True", "False"] %>
+  <p><%= form.label :tridactyl %></p>
+  <%= form.select :tridactyl, ["True", "False"] %>
+  <p><%= form.label :zygodactyl %></p>
+  <%= form.select :zygodactyl, ["True", "False"] %>
+
+  <p><%= form.submit "Create Avian Order" %></p>
+<% end %>

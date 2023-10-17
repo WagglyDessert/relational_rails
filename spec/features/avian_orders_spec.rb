@@ -68,6 +68,29 @@ RSpec.describe "AvianOrders Index", type: :feature do
         click_link('List of Birds')
         expect(current_path).to eq('/birds')
       end
+    # User Story 11, Parent Creation 
+    # As a visitor
+    # When I visit the Parent Index page
+    # Then I see a link to create a new Parent record, "New Parent"
+    # When I click this link
+    # Then I am taken to '/parents/new' where I  see a form for a new parent record
+    # When I fill out the form with a new parent's attributes:
+    # And I click the button "Create Parent" to submit the form
+    # Then a `POST` request is sent to the '/parents' route,
+    # a new parent record is created,
+    # and I am redirected to the Parent Index page where I see the new Parent displayed.
+      it "adds a link to create a new parent record and creates a form" do
+        visit "/avianorders"
+        expect(page).to have_link("Add New Avian Order")
+
+        click_link("Add New Avian Order")
+        expect(current_path).to eq("/avianorders/new")
+        
+        fill_in('Order', with: "Piciformes")
+        click_button("Create Avian Order")
+        expect(current_path).to eq("/avianorders")
+        expect(page).to have_content("Piciformes")
+      end
     end
   end
 end
