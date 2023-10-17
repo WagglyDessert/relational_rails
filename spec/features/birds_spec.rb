@@ -13,6 +13,10 @@ RSpec.describe "AvianOrders Index", type: :feature do
                         population: 310000000,
                          migratory: true,
                          sexual_dichromatism: true)
+    @bird_2 = @avianorder_1.birds.create!(name: "Eurasian bullfinch",
+                         population: 40000000,
+                          migratory: true,
+                          sexual_dichromatism: true)
   end
 
   # As a user,
@@ -71,18 +75,17 @@ RSpec.describe "AvianOrders Index", type: :feature do
       # When I click the link
       # I should be taken to that `child_table_name` edit page where I can update its information just like in User Story 14
       it "has links to update birds from bird index page" do
-        visit "/avianorders"
-        expect(page).to have_link("Update Avian Order")
+        visit "/birds"
+        expect(page).to have_link("Update Bird")
 
-        all('a', text: "Update Avian Order")[0].click
-        expect(current_path).to eq("/avianorders/#{@avianorder_2.id}/edit")
+        all('a', text: "Update Bird")[0].click
+        expect(current_path).to eq("/birds/#{@bird_1.id}/edit")
         
-        fill_in('Order', with: "Piciformes")
-        click_button("Update Avian Order")
-        expect(current_path).to eq("/avianorders")
-        expect(page).to have_content("Piciformes")
-        expect(page).to have_content("passeriformes")
-        expect(page).to_not have_content("strigiformes")
+        fill_in('name', with: "Yellow-bellied front-runner")
+        click_button("Update Bird")
+        expect(current_path).to eq("/birds")
+        expect(page).to have_content("Yellow-bellied front-runner")
+        expect(page).to_not have_content("Common starling")
       end
     end
   end
