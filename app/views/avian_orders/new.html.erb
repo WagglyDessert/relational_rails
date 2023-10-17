@@ -1,5 +1,5 @@
 <h2> Enter the Name of the Avian Order You Would Like to Create </h2>
-<%= form_with url: '/avianorders/new', method: :post, local: true do |form| %>
+<%= form_with url: '/avianorders/new', method: :post, data: {turbo: false} do |form| %>
   <p><%= form.label :order %></p>
   <%= form.text_field :order %>
 
