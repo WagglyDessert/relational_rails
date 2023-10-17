@@ -55,6 +55,19 @@ RSpec.describe "AvianOrders Index", type: :feature do
         expect(page).to have_content(@avianorder_1.created_at)
         expect(page).to have_content(@avianorder_2.created_at)
       end
+      # User Story 9, Parent Index Link
+      # As a visitor
+      #When I visit any page on the site
+      #Then I see a link at the top of the page that takes me to the Parent Index
+      it "adds a link to the parent index" do
+        visit "/birds"
+        click_link('List of Birds')
+        expect(current_path).to eq('/birds')
+
+        visit "/avianorders"
+        click_link('List of Birds')
+        expect(current_path).to eq('/birds')
+      end
     end
   end
 end

@@ -22,5 +22,6 @@ RSpec.describe "avian_order_birds index", type: :feature do
       expect(page).to have_content(bird_1.migratory)
       expect(page).to have_content(bird_1.sexual_dichromatism)
       end
+      
   end
 end

@@ -1,3 +1,5 @@
+<%= link_to "List of Avian Orders", "/avianorders" %>
+<%= link_to "List of Birds", "/birds" %>
 <h1>Avianorders and their Birds</h1>
 
 <% @birds.each do |bird| %>
@@ -8,4 +10,3 @@
   <p> sexual_dichromatism: <%= bird.sexual_dichromatism %></p>
 <% end %>  
 
-<%= link_to "List of Birds", "/birds" %>

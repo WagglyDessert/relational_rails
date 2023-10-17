@@ -1,3 +1,5 @@
+<%= link_to "List of Avian Orders", "/avianorders" %>
+<%= link_to "List of Birds", "/birds" %>
 <h1>Avianorders</h1>
 
 <% @avianorders.each do |avianorder| %>
@@ -9,5 +11,3 @@
   <p>Zygodactyl: <%= avianorder.zygodactyl %></p>
   <p> Created_at: <%= avianorder.created_at %></p>
 <% end %>  
-
-<%= link_to "List of Birds", "/birds" %>
