@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   get "/avianorders/new", to: "avian_orders#new"
   post "/avianorders/new", to: "avian_orders#create"
+  
+  get "/avianorders/:avian_order_id/birds/new", to: "avian_orders_birds#new"
+  post "/avianorders/:avian_order_id/birds/new", to: "avian_orders_birds#create"
+
   get "/avianorders", to: "avian_orders#index"
   get "/avianorders/:id", to: "avian_orders#show"
   get "/birds", to: "birds#index"
