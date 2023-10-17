@@ -41,4 +41,17 @@ RSpec.describe "AvianOrders Index", type: :feature do
     visit "/avianorders/#{@avianorder_1.id}"
     expect(page).to have_content(@avianorder_1.birds.count)
   end
+  #User Story 10, Parent Child Index Link
+  #As a visitor
+  #When I visit a parent show page ('/parents/:id')
+  #Then I see a link to take me to that parent's `child_table_name` page ('/parents/:id/child_table_name')
+  it "has a link to the parent's bird_table_name page" do
+   visit "/avianorders/#{@avianorder_1.id}"
+    click_link("List of Birds in #{@avianorder_1.order}")
+    expect(current_path).to eq("/avianorders/#{@avianorder_1.id}/birds")
+
+    visit "/avianorders/#{@avianorder_2.id}"
+    click_link("List of Birds in #{@avianorder_2.order}")
+    expect(current_path).to eq("/avianorders/#{@avianorder_2.id}/birds")
+  end
 end
