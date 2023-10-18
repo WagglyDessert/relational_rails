@@ -1,7 +1,7 @@
-<h1>Avianorders</h1>
+<h1>Avian Orders</h1>
 
 <% @avianorders.each do |avianorder| %>
-  <h2><%= avianorder.order %></h2>
+  <h2><%= link_to avianorder.order, "/avianorders/#{avianorder.id}/birds" %></h2>
   <p>Families: <%= avianorder.families %></p>
   <p>Anisodactyl: <%= avianorder.anisodactyl %></p>
   <p>Didactyl: <%= avianorder.didactyl %></p>
