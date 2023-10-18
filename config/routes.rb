@@ -17,10 +17,11 @@ Rails.application.routes.draw do
   get "/birds/:id", to: "birds#show"
   get "/birds/:id/edit", to: "birds#edit"
   patch "/birds/:id/edit", to: "birds#update"
+  delete "/birds/:id", to: "birds#destroy"
 
   get "/avianorders/:id", to: "avian_orders#show"
   get "/avianorders/:id/edit", to: "avian_orders#edit"
   patch "/avianorders/:id/edit", to: "avian_orders#update"
-  get "/avianorders/:id/delete", to: "avian_orders#destroy"
+  delete "/avianorders/:id", to: "avian_orders#destroy"
   
 end

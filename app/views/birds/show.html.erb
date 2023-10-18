@@ -6,3 +6,4 @@
 <p>Sexual_dichromatism: <%= @bird.sexual_dichromatism %></p>
 
 <p><%= link_to "Update Bird", "/birds/#{@bird.id}/edit" %></p>
+<p><%= button_to "Delete Bird", "/birds/#{@bird.id}", method: :delete %></p>

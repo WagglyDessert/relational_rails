@@ -28,8 +28,8 @@ class AvianOrdersController < ApplicationController
   end
   
   def destroy
-    @avianorder = AvianOrder.find(params[:id])
-    @avianorder.destroy
+    avianorder = AvianOrder.find(params[:id])
+    avianorder.destroy
     redirect_to "/avianorders"
   end
 

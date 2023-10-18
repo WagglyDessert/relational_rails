@@ -13,6 +13,10 @@ RSpec.describe "AvianOrders Index", type: :feature do
                         population: 310000000,
                          migratory: true,
                          sexual_dichromatism: true)
+    @bird_2 = @avianorder_1.birds.create!(name: "Eurasian bullfinch",
+                         population: 40000000,
+                          migratory: true,
+                          sexual_dichromatism: true)
   end
 
   # As a user,
@@ -57,6 +61,24 @@ RSpec.describe "AvianOrders Index", type: :feature do
     click_button("Update Bird")
     expect(current_path).to eq("/birds")
     expect(page).to have_content("Yellow-bellied front-runner")
+    expect(page).to_not have_content("Common starling")
+  end
+  # User Story 20, Child Delete 
+  # As a visitor
+  # When I visit a child show page
+  # Then I see a link to delete the child "Delete Child"
+  # When I click the link
+  # Then a 'DELETE' request is sent to '/child_table_name/:id',
+  # the child is deleted,
+  # and I am redirected to the child index page where I no longer see this child
+  it "will add a link to delete bird from bird show page" do
+    visit "/birds/#{@bird_1.id}"
+    expect(page).to have_button("Delete Bird")
+
+    click_button("Delete Bird")
+    expect(current_path).to eq("/birds")
+    
+    expect(page).to have_content("Eurasian bullfinch")
     expect(page).to_not have_content("Common starling")
   end
 end

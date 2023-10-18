@@ -89,9 +89,9 @@ RSpec.describe "AvianOrders Index", type: :feature do
   # and I am redirected to the parent index page where I no longer see this parent
   it "will add a link to delete avianorder from avianorder show page" do
     visit "/avianorders/#{@avianorder_1.id}"
-    expect(page).to have_link("Delete Avian Order")
+    expect(page).to have_button("Delete Avian Order")
 
-    click_link("Delete Avian Order")
+    click_button("Delete Avian Order")
     expect(current_path).to eq("/avianorders")
     
     expect(page).to have_content("strigiformes")

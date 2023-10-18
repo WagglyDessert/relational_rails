@@ -17,6 +17,12 @@ class BirdsController < ApplicationController
     redirect_to "/birds"
   end
 
+  def destroy
+    bird = Bird.find(params[:id])
+    bird.destroy
+    redirect_to "/birds"
+  end
+
   private
   def bird_params
     params.permit(:name, :migratory, :population, :sexual_dichromatism)
