@@ -9,6 +9,9 @@
   <p>Zygodactyl: <%= avianorder.zygodactyl %></p>
   <p> Created_at: <%= avianorder.created_at %></p>
   <p><%= link_to "Update Avian Order", "/avianorders/#{avianorder.id}/edit" %></p>
+  <p><%= button_to "Delete #{avianorder.order}", "/avianorders/#{avianorder.id}", method: :delete %></p>
+
 <% end %>  
 
 <p><%= link_to "Add New Avian Order", "/avianorders/new" %></p>
+

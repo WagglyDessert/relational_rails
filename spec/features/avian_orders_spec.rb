@@ -111,6 +111,23 @@ RSpec.describe "AvianOrders Index", type: :feature do
         expect(page).to have_content("passeriformes")
         expect(page).to_not have_content("strigiformes")
       end
+      # User Story 22, Parent Delete From Parent Index Page 
+      # As a visitor
+      # When I visit the parent index page
+      # Next to every parent, I see a link to delete that parent
+      # When I click the link
+      # I am returned to the Parent Index Page where I no longer see that parent
+      it "has a button to delete avianorder from index page" do
+        visit "/avianorders"
+        expect(page).to have_button("Delete #{@avianorder_1.order}")
+        expect(page).to have_button("Delete #{@avianorder_2.order}")
+
+        click_button("Delete #{@avianorder_1.order}")
+        expect(current_path).to eq("/avianorders")
+        
+        expect(page).to have_content("strigiformes")
+        expect(page).to_not have_content("passeriformes")
+      end
     end
   end
 end
