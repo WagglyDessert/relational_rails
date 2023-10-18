@@ -73,8 +73,7 @@ RSpec.describe "avian_order_birds index", type: :feature do
       expect(page).to have_link("Sort Alphabetically")
 
       click_link("Sort Alphabetically")
-      # expect(current_path).to eq("/avianorders/#{@avianorder_1.id}/birds")
-      # expect(page).to have_content("#{@bird_1.name}, #{@bird_2.name}")
+      expect("Common starling").to appear_before("Eurasian bullfinch")
     end
   end
 end

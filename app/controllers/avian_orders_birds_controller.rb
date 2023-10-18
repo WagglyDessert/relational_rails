@@ -4,7 +4,7 @@ class AvianOrdersBirdsController < ApplicationController
     @birds = @avianorder.birds
 
     if params[:sort] == "alpha"
-      @birds = @avianorder.birds.order([:name])
+      @birds = @avianorder.sort_birds_by_name
     end
   end
 
@@ -16,11 +16,6 @@ class AvianOrdersBirdsController < ApplicationController
     @avianorder = AvianOrder.find(params[:avian_order_id])
     @avianorder.birds.create(bird_params)
     redirect_to "/avianorders/#{@avianorder.id}/birds"
-  end
-
-  def sort
-    @birds = Bird.order(params[name: ])
-    # redirect_to "/avianorders/#{@avianorder.id}/birds"
   end
 
   private

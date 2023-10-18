@@ -4,12 +4,11 @@ class AvianOrdersController < ApplicationController
   end
 
   def new
-    @avianorder = AvianOrder.create
+    
   end
 
   def show
     @avianorder = AvianOrder.find(params[:id])
-    # @avianorder.birds.count
   end
 
   def create
