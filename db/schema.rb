@@ -16,7 +16,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_13_201259) do
 
   create_table "avian_orders", force: :cascade do |t|
     t.string "order"
-    t.integer "families"
+    t.string "families"
     t.integer "species"
     t.boolean "anisodactyl"
     t.boolean "zygodactyl"
