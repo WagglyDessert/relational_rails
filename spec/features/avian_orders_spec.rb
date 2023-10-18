@@ -42,7 +42,7 @@ RSpec.describe "AvianOrders Index", type: :feature do
         visit "/avianorders"
         #assert
         #save_and_open_page if not using seed data
-        expect(page).to have_content("Avianorders")
+        expect(page).to have_content("Avian Orders")
         expect(page).to have_content(avianorder_1.families)
         expect(page).to have_content(avianorder_1.anisodactyl)
       end
