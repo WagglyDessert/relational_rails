@@ -2,6 +2,10 @@ class AvianOrdersBirdsController < ApplicationController
   def index
     @avianorder = AvianOrder.find(params[:avian_order_id])
     @birds = @avianorder.birds
+
+    if params[:sort] == "alpha"
+      @birds = @avianorder.birds.order([:name])
+    end
   end
 
   def new

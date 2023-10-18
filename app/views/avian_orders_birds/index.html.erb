@@ -1,4 +1,4 @@
-<h1>Avianorders and their Birds</h1>
+<h1> Birds in the order <%= @avianorder.order %> </h1>
 
 <% @birds.each do |bird| %>
   <h2><%= bird.name %></h2>
@@ -9,4 +9,4 @@
 <% end %>
 
 <p><%= link_to "Add New Bird", "/avianorders/#{@avianorder.id}/birds/new" %></p>
-<p><%= link_to "Sort Alphabetically", sort: :name %></p>
+<p><%= link_to "Sort Alphabetically", "/avianorders/#{@avianorder.id}/birds?sort=alpha" %></p>
