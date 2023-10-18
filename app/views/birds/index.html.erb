@@ -6,5 +6,7 @@
   <p>Migratory: <%= bird.migratory %></p>
   <p>Sexual Dichromatism: <%= bird.sexual_dichromatism %></p>
   <p><%= link_to "Update Bird", "/birds/#{bird.id}/edit" %></p>
+  <p><%= button_to "Delete #{bird.name}", "/birds/#{bird.id}", method: :delete %></p>
+
 <% end %>  
 
