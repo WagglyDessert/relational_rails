@@ -1,19 +1,19 @@
 <h2> Editing  <%= @avianorder.order %></h2>
 <%= form_with url: "/avianorders/#{@avianorder.id}/edit", method: :patch, data: {turbo: false} do |form| %>
   <p><%= form.label :order %></p>
-  <%= form.text_field :order %>
+  <%= form.text_field :order, value: "#{@avianorder.order}" %>
 
   <p><%= form.label :families %></p>
-  <%= form.text_field :families %>
+  <%= form.text_field :families, value: "#{@avianorder.families}" %>
 
   <p><%= form.label :anisodactyl %></p>
-<%= form.select :anisodactyl, options_for_select([[true, 'True'], [false, 'False']], @avianorder.anisodactyl) %>
+<%= form.select :anisodactyl, options_for_select([[true, 'true'], [false, 'false']], @avianorder.anisodactyl) %>
   <p><%= form.label :didactyl %></p>
-<%= form.select :didactyl, options_for_select([[true, 'True'], [false, 'False']], @avianorder.didactyl) %>
+<%= form.select :didactyl, options_for_select([[true, 'true'], [false, 'false']], @avianorder.didactyl) %>
   <p><%= form.label :tridactyl %></p>
-<%= form.select :tridactyl, options_for_select([[true, 'True'], [false, 'False']], @avianorder.tridactyl) %>
+<%= form.select :tridactyl, options_for_select([[true, 'true'], [false, 'false']], @avianorder.tridactyl) %>
   <p><%= form.label :zygodactyl %></p>
-<%= form.select :zygodactyl, options_for_select([[true, 'True'], [false, 'False']], @avianorder.zygodactyl) %>
+<%= form.select :zygodactyl, options_for_select([[true, 'true'], [false, 'false']], @avianorder.zygodactyl) %>
 
   <p><%= form.submit "Update Avian Order" %></p>
 <% end %>
