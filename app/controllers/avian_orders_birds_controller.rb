@@ -6,6 +6,11 @@ class AvianOrdersBirdsController < ApplicationController
     if params[:sort] == "alpha"
       @birds = @avianorder.sort_birds_by_name
     end
+
+    if params[:filter].present?
+      threshold = params[:filter].to_i
+      @birds = @birds.where('population > ?', threshold)
+    end
   end
 
   def new

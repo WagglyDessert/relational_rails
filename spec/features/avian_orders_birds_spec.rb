@@ -75,5 +75,22 @@ RSpec.describe "avian_order_birds index", type: :feature do
       click_link("Sort Alphabetically")
       expect("Common starling").to appear_before("Eurasian bullfinch")
     end
+    # User Story 21, Display Records Over a Given Threshold 
+    # As a visitor
+    # When I visit the Parent's children Index Page
+    # I see a form that allows me to input a number value
+    # When I input a number value and click the submit button that reads 'Only return records with more than `number` of `column_name`'
+    # Then I am brought back to the current index page with only the records that meet that threshold shown.
+    it "shows a form to input a number value and returns only those records with more than that number" do
+      visit "/avianorders/#{@avianorder_1.id}/birds"
+      expect(page).to have_selector('form', text: "Only return birds with a populaton greater than:")
+      expect(page).to have_button("Filter")
+
+      fill_in "filter", with: 40000000
+      click_button "Filter"
+
+      expect(page).to have_content("Common starling")
+      expect(page).to_not have_content("Eurasian bullfinch")
+    end
   end
 end

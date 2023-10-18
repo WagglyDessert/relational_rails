@@ -4,4 +4,8 @@ class Bird < ApplicationRecord
   def self.display_true
     where("migratory = true")
   end
+
+  def self.population_over_threshold
+    
+  end
 end

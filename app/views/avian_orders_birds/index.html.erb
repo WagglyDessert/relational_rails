@@ -1,5 +1,11 @@
 <h1> Birds in the order <%= @avianorder.order %> </h1>
 
+<%= form_with url: "/avianorders/#{@avianorder.id}/birds", method: :get, data: {turbo: false} do |form| %>
+  <p><%= form.label :filter, 'Only return birds with a populaton greater than:' %></p>
+  <%= form.number_field :filter, value: params[:filter], step: 1000000 %>
+  <%= form.submit 'Filter' %>
+  <% end %>
+
 <% @birds.each do |bird| %>
   <h2><%= bird.name %></h2>
   <%= link_to bird.name, "/birds/#{bird.id}" %>
