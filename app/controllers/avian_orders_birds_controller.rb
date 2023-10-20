@@ -9,7 +9,7 @@ class AvianOrdersBirdsController < ApplicationController
 
     if params[:filter].present?
       threshold = params[:filter].to_i
-      @birds = @birds.where('population > ?', threshold)
+      @birds = @birds.filter_by_population(threshold)
     end
   end
 

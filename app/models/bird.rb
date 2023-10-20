@@ -5,7 +5,7 @@ class Bird < ApplicationRecord
     where("migratory = true")
   end
 
-  def self.population_over_threshold
-    
+  def self.filter_by_population(threshold)
+    where('population > ?', threshold)
   end
 end
